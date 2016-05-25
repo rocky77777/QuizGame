@@ -1,0 +1,9 @@
+<img ng-src={{urlAnswers}} />
+<h3>is the flag of </h3>
+
+<form name="answers">
+	<label ng-repeat-start="answer in answers">
+		<input type="radio" ng-model="answers" ng-change="answerQuestion(answer.countryName)"> {{answer.countryName}}
+	</label>
+	<br ng-repeat-end />
+</form>

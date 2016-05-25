@@ -1,0 +1,16 @@
+.well {
+    width: 400px;
+    margin: 100px auto;
+}
+
+.actions {
+    margin: 20px;
+}
+
+label {
+    font-size: 22px;
+}
+
+h1 {
+    text-align: center;
+}

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GeoQuiz</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="app.js"></script>
+    <script src="https://cdn.jsdelivr.net/lodash/4.12.0/lodash.min.js"></script>
+    <script src="directives.js"></script>
+    <script src="factories.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+</head>
+<body ng-app="app">
+
+    <div ng-controller="mainController">
+        <h1>Capitals Quiz</h1>
+        <div class="well" ng-show="quiz.active === false">
+            <h4 ng-show="quiz.results === true">Score {{quiz.correct / quiz.length * 100}}%</h4>
+            <div class="actions">
+                <button type="button" class="btn btn-success btn-lg btn-block" ng-click="startCapitalQuiz()">Start Capitals Quiz</button>
+                <button type="button" class="btn btn-success btn-lg btn-block" ng-click="startFlagQuiz()">Start Flag Quiz</button>
+                <button type="button" class="btn btn-success btn-lg btn-block" ng-click="startCountryQuiz()">Start Country Shape Quiz</button>
+            </div>
+        </div>
+
+        <div ng-show="quiz.active === true">
+            <progress-bar current="quiz.current" length="quiz.length" correct="quiz.correct"></progress-bar>
+
+            <capital-question country="quiz.questions[quiz.current]" answers="quiz.questions[quiz.current].answers"></capital-question>
+
+        </div>
+
+        <div ng-show="quiz.active === true">
+            <progress-bar current="quiz.current" length="quiz.length" correct="quiz.correct"></progress-bar>
+
+            <flag-question country="quiz.questions[quiz.current]" answers="quiz.questions[quiz.current].answers"></flag-question>
+
+        </div>
+
+
+
+    </div>
+
+    <!--<script type="text/ng-template" id="capital-question.html">
+
+    </script>-->
+
+
+
+</body>
+</html>
+
+
+<!-- <div ng-controller="mainController">
+    <h1>Capitals Quiz</h1>
+    <div class="well" ng-show="quiz.active === false">
+        <h3 class="results" ng-show="quiz.results === true">
+            Score: {{ quiz.correct }} / 10
+        </h3>
+        <div class="actions">
+            <button type="button" class="btn btn-success btn-lg btn-block" ng-click="startCapitalQuiz()">Start</button>
+        </div>
+    </div>
+
+    <div ng-show="quiz.active === true">
+        <h4>Question {{ quiz.current + 1 }}/{{ quiz.length }}</h4>
+
+        <h3>{{ quiz.questions[quiz.current].capital }} is the capital of </h3>
+
+        <form name="answers">
+            <label ng-repeat-start="answer in quiz.questions[quiz.current].answers">
+                <input type="radio" ng-model="answers" ng-change="answerQuestion(answer.countryName)"> {{answer.countryName}}
+            </label>
+            <br ng-repeat-end />
+        </form>
+    </div>
+</div> -->
